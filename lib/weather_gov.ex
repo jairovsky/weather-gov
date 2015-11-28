@@ -1,2 +1,0 @@
-defmodule WeatherGov do
-end
