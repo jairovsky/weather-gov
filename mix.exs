@@ -2,12 +2,15 @@ defmodule WeatherGov.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :weather_gov,
-     version: "0.0.1",
-     elixir: "~> 1.1",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps]
+    [
+      app: :weather_gov,
+      version: "0.0.1",
+      elixir: "~> 1.1",
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      deps: deps,
+      escript: escript
+    ]
   end
 
   # Configuration for the OTP application
@@ -32,5 +35,10 @@ defmodule WeatherGov.Mixfile do
       {:exprintf, "~> 0.1.6"},
       {:meck, "~> 0.8.3"}
     ]
+  end
+
+  # executable script configuration
+  defp escript do
+    [main_module: WeatherGov.App]
   end
 end
