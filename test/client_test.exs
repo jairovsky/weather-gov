@@ -17,9 +17,6 @@ defmodule WeatherGovClientTest do
 
     assert "fake_payload" == Client.fetch("foobar")
 
-    assert :meck.validate(UF)
-    assert :meck.validate(HTTPoison)
-
     :meck.unload(UF)
     :meck.unload(HTTPoison)
   end
@@ -29,7 +26,9 @@ defmodule WeatherGovClientTest do
     :meck.new(HTTPoison)
     :meck.new(IO)
     :meck.new(System)
+
     :meck.expect(UF, :format, fn("foobar") -> "http://foobar" end)
+
     :meck.expect \
       HTTPoison,
       :get,
@@ -49,11 +48,6 @@ defmodule WeatherGovClientTest do
     :meck.expect(System, :halt, fn (:abort) -> end)
 
     Client.fetch("foobar")
-
-    assert :meck.validate(UF)
-    assert :meck.validate(HTTPoison)
-    assert :meck.validate(IO)
-    assert :meck.validate(System)
 
     :meck.unload(UF)
     :meck.unload(HTTPoison)

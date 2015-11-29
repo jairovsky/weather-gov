@@ -2,7 +2,7 @@ defmodule WeatherGovAppTest do
   use ExUnit.Case
 
   alias WeatherGov.App, as: App
-  alias WeatherGov.Client, as: Client
+  alias WeatherGov.WeatherInfo, as: WeatherInfo
 
   test "main() halts when invalid arguments are passed" do
     :meck.new(IO)
@@ -20,38 +20,20 @@ defmodule WeatherGovAppTest do
 
     App.main(["foo", "bar"])
 
-    assert :meck.validate(IO)
-    assert :meck.validate(System)
-
     :meck.unload(IO)
     :meck.unload(System)
   end
 
-  test "main() calls process_arg when valid argument is passed" do
-    :meck.new(App)
-    :meck.new(Client)
+  test "main() calls WeatherInfo when valid arg is passed" do
+    :meck.new(WeatherInfo)
 
-    :meck.expect(App, :main, fn(argv) -> :meck.passthrough([argv]) end)
-    :meck.expect(App, :process_arg, fn("foo") -> end)
-    :meck.expect(Client, :fetch, fn (_) -> end)
+    :meck.expect(WeatherInfo, :get_info, fn (argv) -> end)
 
-    App.main(["foo"])
+    App.main(["foobar"])
 
-    assert :meck.validate(App)
-    assert :meck.validate(Client)
+    assert :meck.called(WeatherInfo, :get_info, ["foobar"])
 
-    :meck.unload(App)
-    :meck.unload(Client)
+    :meck.unload(WeatherInfo)
   end
 
-  test "process_arg() fetches XML through Client" do
-    :meck.new(Client)
-    :meck.expect(Client, :fetch, fn ("foobar") -> "fake_payload" end)
-
-    assert "fake_payload" == App.process_arg("foobar")
-
-    assert :meck.validate(Client)
-
-    :meck.unload(Client)
-  end
 end

@@ -15,14 +15,17 @@ defmodule WeatherGov.PayloadParser do
 
   defp to_map({document, _}) do
     %{
-      credit: xpath_text(document, '/current_observation/credit'),
-      credit_url: xpath_text(document, '/current_observation/credit_URL'),
-      location: xpath_text(document, '/current_observation/location')
+      credit: xpath_text(document, '/credit'),
+      credit_url: xpath_text(document, '/credit_URL'),
+      location: xpath_text(document, '/location'),
+      observation_time: xpath_text(document, '/observation_time'),
+      weather: xpath_text(document, '/weather'),
+      temperature_string: xpath_text(document, '/temperature_string')
     }
   end
 
   defp xpath_text(document, xpath) do
-    :xmerl_xpath.string(xpath, document)
+    :xmerl_xpath.string('/current_observation' ++ xpath, document)
     |> tap([element] ~> element)
     |> xmlElement(:content)
     |> tap([text] ~> text)
