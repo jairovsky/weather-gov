@@ -33,7 +33,8 @@ defmodule WeatherGov.Mixfile do
     [
       {:httpoison, "~> 0.8.0"},
       {:exprintf, "~> 0.1.6"},
-      {:meck, "~> 0.8.3"}
+      {:meck, "~> 0.8.3"},
+      {:pattern_tap, "~> 0.2.2"}
     ]
   end
 

@@ -1,6 +1,7 @@
 defmodule WeatherGov.App do
 
   alias WeatherGov.CommandLineParser, as: CLP
+  alias WeatherGov.Client, as: Client
 
   def main(argv) do
     case CLP.parse_args(argv) do
@@ -10,7 +11,7 @@ defmodule WeatherGov.App do
   end
 
   def process_arg(station_code) do
-    
+    Client.fetch(station_code)
   end
 
   defp handle_error(msg) do

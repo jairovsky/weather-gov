@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<?xml-stylesheet href="latest_ob.xsl" type="text/xsl"?>
+<current_observation version="1.0"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:noNamespaceSchemaLocation="http://www.weather.gov/view/current_observation.xsd">
+	<credit>NOAA's National Weather Service</credit>
+	<credit_URL>http://weather.gov/</credit_URL>
+	<image>
+		<url>http://weather.gov/images/xml_logo.gif</url>
+		<title>NOAA's National Weather Service</title>
+		<link>http://weather.gov</link>
+	</image>
+	<suggested_pickup>15 minutes after the hour</suggested_pickup>
+	<suggested_pickup_period>60</suggested_pickup_period>
+	<location>Denton Municipal Airport, TX</location>
+	<station_id>KDTO</station_id>
+	<latitude>33.20505</latitude>
+	<longitude>-97.20061</longitude>
+	<observation_time>Last Updated on Nov 28 2015, 5:53 pm CST</observation_time>
+        <observation_time_rfc822>Sat, 28 Nov 2015 17:53:00 -0600</observation_time_rfc822>
+	<weather>Overcast</weather>
+	<temperature_string>39.0 F (3.9 C)</temperature_string>
+	<temp_f>39.0</temp_f>
+	<temp_c>3.9</temp_c>
+	<relative_humidity>89</relative_humidity>
+	<wind_string>Northwest at 11.5 MPH (10 KT)</wind_string>
+	<wind_dir>Northwest</wind_dir>
+	<wind_degrees>330</wind_degrees>
+	<wind_mph>11.5</wind_mph>
+	<wind_kt>10</wind_kt>
+	<pressure_string>1023.7 mb</pressure_string>
+	<pressure_mb>1023.7</pressure_mb>
+	<pressure_in>30.22</pressure_in>
+	<dewpoint_string>36.0 F (2.2 C)</dewpoint_string>
+	<dewpoint_f>36.0</dewpoint_f>
+	<dewpoint_c>2.2</dewpoint_c>
+	<windchill_string>32 F (0 C)</windchill_string>
+      	<windchill_f>32</windchill_f>
+      	<windchill_c>0</windchill_c>
+	<visibility_mi>10.00</visibility_mi>
+ 	<icon_url_base>http://forecast.weather.gov/images/wtf/small/</icon_url_base>
+	<two_day_history_url>http://www.weather.gov/data/obhistory/KDTO.html</two_day_history_url>
+	<icon_url_name>ovc.png</icon_url_name>
+	<ob_url>http://www.weather.gov/data/METAR/KDTO.1.txt</ob_url>
+	<disclaimer_url>http://weather.gov/disclaimer.html</disclaimer_url>
+	<copyright_url>http://weather.gov/disclaimer.html</copyright_url>
+	<privacy_policy_url>http://weather.gov/notice.html</privacy_policy_url>
+</current_observation>
